@@ -1,0 +1,79 @@
+{% extends './plantilla.html' %}
+
+{% block title %}  {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    Datos del producto
+                </div>
+                <div class="card-body">
+                    <form action="/admin/products/guardar" method="post" enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                          <label for="txtNombre" class="form-label">Producto</label>
+                          <input type="text" class="form-control form-control-sm" name="txtNombre" id="txtNombre" aria-describedby="helpId" placeholder="Ingrese el nombre del producto">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="txtImagen" class="form-label">Imagen</label>
+                          <input type="file" class="form-control" name="txtImagen" id="txtImagen" aria-describedby="helpId" placeholder="Seleccione la imagen">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtDescripcion" class="form-label">Descripción del producto</label>
+                            <input type="text" class="form-control" name="txtDescripcion" id="txtDescripcion" aria-describedby="helpId" placeholder="Agregue la descripción">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtPrecio" class="form-label">Precio</label>
+                            <input type="text" class="form-control form-control-sm" name="txtPrecio" id="txtPrecio" aria-describedby="helpId" placeholder="Ingrese el precio del producto">
+                          </div>
+
+                          <button type="submit" class="btn btn-primary">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-7">
+            <div class="table-responsive">
+                <table class="table table-primary">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Carrito</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for products in products %}
+                        <tr class="">
+                            <td>{{products[0]}}</td>
+                            <td>{{products[1]}}</td>
+                            <td> 
+                                <img width="60" src="/img/{{products[2]}}" class="img-fluid rounded-top" alt="">
+                            </td>
+                            <td>{{products[3]}}</td>
+                            <td>{{products[4]}}</td>
+                            <td>
+                                <form action="/admin/products/borrar" method="post">
+                                    <input value="{{products[0]}}" type="text" name="txtID" id="txtID">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

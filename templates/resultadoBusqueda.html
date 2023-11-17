@@ -1,0 +1,44 @@
+{% extends './plantilla.html' %}
+ 
+{% block body %}
+{{Data}}
+<div id="resultado" class="text-center">
+    <h1 class="text-center"> Resultados de la busqueda <hr></h1>
+     {%if (Data) %}
+    <section>
+        <p>
+            Imagen: <strong> {{Data.Imagen}} </strong>
+        </p>
+        <p>
+           Nombre: <strong> {{Data.Nombre}} </strong>
+        </p>
+        <p>
+            Descripción del producto: <strong> {{Data.Descripcion}} </strong>
+        </p>
+        <p>
+            Precio: <strong> {{Data.Precio}} </strong>
+        </p>
+        <a href="#" class="btn btn-primary">Añadir al carrito</a> 
+
+       <!--  <div class="card ">
+            <img src="/img/{{products[2]}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{products[1]}}</h5>
+              <p class="card-text">{{products[3]}}</p>
+              <p class="card-text text-center">{{products[4]}}</p>
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            </div>
+          </div> -->
+    </div>
+
+    </section >
+
+    {% else %}  
+    <h4 class="text-center"> No hay resultados de la busqueda <hr>
+        <strong class="busqueda"> {{busqueda}} </strong>
+    </h4>
+
+    {% endif %}
+
+</div>
+{% endblock %}

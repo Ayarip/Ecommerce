@@ -1,0 +1,72 @@
+{% extends './plantilla.html' %}
+
+{% block title %} Productos y servicios {% endblock %}
+ 
+{% block body %}
+<!-- <h1> Detalles de los productos y servicios </h1> -->
+
+<hr class="featurette-divider">
+
+
+<div class="row m-4">
+
+<div class="list-group list-group-checkable gap-2 border-0 col-md-2 mb-md-4 mb-5">
+ 
+    <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios1">
+      <input class="list-group-item-check pe-none mb-2 " type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios1" value="" checked="">
+      Categoria 1
+    <!-- <span class="d-block small opacity-50">With support text underneath to add more detail</span> -->
+    </label>
+  
+  
+
+  <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios2">
+  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios2" value="">
+    Categoria 2
+    <!-- <span class="d-block small opacity-50">Some other text goes here</span> -->
+  </label>
+
+  
+
+  <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios3">
+    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios3" value="">
+    Categoria 3
+    <!-- <span class="d-block small opacity-50">And we end with another snippet of text</span> -->
+  </label>
+
+
+  <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios4">
+    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios4" value="">
+    Categoria 4
+    <!-- <span class="d-block small opacity-50">This option is disabled</span> -->
+  </label>
+</div>
+
+
+
+
+{% for products in products %}
+
+<div class="container col-md-3 py-2 " >
+<div class="row">
+<div class="row align-items-start">
+<div class="card ">
+        <img src="/img/{{products[2]}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{products[1]}}</h5>
+          <p class="card-text">{{products[3]}}</p>
+          <p class="card-text text-center">{{products[4]}}</p>
+          <input type="hidden" name="id" value="{{product[0]}}"/> 
+          <input type="text" class="product-quantity" name="quantity" value="1" size="2"/>
+          <input type="submit" href="#" class="btn btn-primary"/> Añadir al carrito
+        </div>
+      </div>
+</div>
+</div>  
+</div>
+{% endfor %}
+</div>
+
+   
+
+{% endblock %}
